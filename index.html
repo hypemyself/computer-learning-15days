@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#f6f4ef" />
+    <title>新生电脑课 | 15 天入门</title>
+    <link rel="stylesheet" href="styles.css?v=20260822-learning-v6" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar" id="sidebar">
+        <div class="brand-block">
+          <div class="brand-mark" aria-hidden="true">⌘</div>
+          <div>
+            <p class="eyebrow">15 DAY LAB</p>
+            <h1>新生电脑课</h1>
+          </div>
+        </div>
+
+        <div class="profile-strip">
+          <div class="avatar" aria-hidden="true">大</div>
+          <div>
+            <strong>准大一新生</strong>
+            <span>Windows 11 · Python 路线</span>
+          </div>
+        </div>
+
+        <nav class="day-nav" aria-label="15 天课程">
+          <div class="nav-label"><span>学习路线</span><span id="sidebarProgress">0 / 15</span></div>
+          <div id="lessonList"></div>
+        </nav>
+
+        <div class="sidebar-footer">
+          <div class="mini-note"><span class="note-dot"></span><span>进度自动保存在本机</span></div>
+          <div class="sidebar-tools">
+            <button class="sidebar-tool" id="labCenterButton" type="button"><span aria-hidden="true">▣</span><span>模拟实验</span><span class="tool-count lab-count" id="labCount">0/3</span></button>
+            <button class="sidebar-tool" id="reviewCenterButton" type="button"><span aria-hidden="true">◎</span><span>复习中心</span><span class="tool-count" id="reviewCount">0</span></button>
+            <button class="sidebar-tool" id="exportProgress" type="button"><span aria-hidden="true">↓</span><span>导出进度</span></button>
+            <button class="sidebar-tool" id="importProgress" type="button"><span aria-hidden="true">↑</span><span>导入进度</span></button>
+            <input id="progressFile" type="file" accept="application/json,.json" hidden />
+          </div>
+          <button class="text-button" id="resetProgress" type="button">↻ 重置学习进度</button>
+        </div>
+      </aside>
+
+      <main class="main-panel">
+        <header class="topbar">
+          <button class="icon-button menu-button" id="menuToggle" type="button" title="打开课程目录" aria-label="打开课程目录">☰</button>
+          <div class="crumbs"><span>学习工作台</span><span aria-hidden="true">/</span><strong id="crumbDay">第 1 天</strong></div>
+          <div class="topbar-actions">
+            <div class="overall-progress" aria-label="总体进度"><span id="topProgressLabel">0%</span><div class="progress-track"><div id="topProgressBar"></div></div></div>
+            <button class="icon-button" id="askButton" type="button" title="打开理解助手" aria-label="打开理解助手">?</button>
+            <button class="icon-button" id="focusButton" type="button" title="进入专注模式" aria-label="进入专注模式">◐</button>
+          </div>
+        </header>
+
+        <div class="content-wrap">
+          <section class="hero-row">
+            <div>
+              <p class="eyebrow" id="lessonKicker">FOUNDATION / DAY 01</p>
+              <h2 id="lessonTitle">认识你的电脑</h2>
+              <p class="lead" id="lessonSummary"></p>
+            </div>
+            <div class="hero-meta">
+              <div class="meta-chip"><span class="chip-icon">◷</span><span id="lessonDuration">60 分钟</span></div>
+              <div class="meta-chip"><span class="chip-icon">◎</span><span id="lessonStatus">未开始</span></div>
+            </div>
+          </section>
+
+          <div class="lesson-grid">
+            <section class="lesson-main">
+              <div class="tabs" role="tablist" aria-label="课程内容">
+                <button class="tab active" role="tab" aria-selected="true" data-tab="learn" type="button">学习内容</button>
+                <button class="tab" role="tab" aria-selected="false" data-tab="practice" type="button">动手练习</button>
+                <button class="tab" role="tab" aria-selected="false" data-tab="notes" type="button">学习笔记</button>
+                <button class="tab" role="tab" aria-selected="false" data-tab="quiz" type="button">快速测验 <span class="tab-badge" id="quizBadge">0/5</span></button>
+              </div>
+              <div id="tabContent"></div>
+            </section>
+
+            <aside class="lesson-aside">
+              <div class="aside-card objective-card">
+                <div class="aside-heading"><span class="section-kicker">TODAY'S TARGET</span><span class="target-icon">✦</span></div>
+                <h3>今天结束时，你可以</h3>
+                <ul id="goalList"></ul>
+              </div>
+              <div class="aside-card visual-card" id="visualCard"></div>
+              <div class="aside-card safety-card">
+                <div class="aside-heading"><span class="section-kicker">SAFE DEFAULT</span><span class="shield-icon">◇</span></div>
+                <p>不确定时先停下来：不要打开陌生附件，不要把验证码告诉别人，也不要删除看不懂的系统文件。</p>
+              </div>
+            </aside>
+          </div>
+
+          <footer class="lesson-footer">
+            <button class="secondary-button" id="prevDay" type="button">← 上一天</button>
+            <div class="footer-hint" id="footerHint">完成练习和测验后，可以标记今天完成</div>
+            <button class="primary-button" id="nextDay" type="button">下一天 →</button>
+          </footer>
+        </div>
+      </main>
+    </div>
+    <button class="selection-ask" id="selectionAsk" type="button" hidden>?</button>
+    <div class="ask-backdrop" id="askBackdrop" hidden></div>
+    <aside class="ask-drawer" id="askDrawer" aria-hidden="true" aria-label="理解助手">
+      <div class="ask-header">
+        <div><p class="section-kicker">LEARNING SUPPORT</p><h2>理解助手</h2></div>
+        <button class="icon-button" id="closeAsk" type="button" title="关闭理解助手" aria-label="关闭理解助手">×</button>
+      </div>
+      <p class="ask-intro">选中页面上的一段话，或直接问当前板块。我会先用简单的话解释，再给一个可操作的例子。</p>
+      <div class="assistant-mode"><span></span>本地课程知识库 · 无需联网</div>
+      <div class="selected-quote" id="selectedQuote"><span>当前板块</span><p id="selectedText">还没有选中文字</p></div>
+      <div class="ask-suggestions" id="askSuggestions">
+        <button type="button" data-suggest="用更简单的话解释">更简单地说</button>
+        <button type="button" data-suggest="举一个生活中的例子">举个例子</button>
+        <button type="button" data-suggest="我应该怎么操作">告诉我怎么做</button>
+      </div>
+      <label class="ask-label" for="askInput">我的问题</label>
+      <textarea id="askInput" rows="3" placeholder="例如：域名和网址有什么区别？"></textarea>
+      <button class="primary-button ask-submit" id="askSubmit" type="button">获得解释 →</button>
+      <div class="ask-answer" id="askAnswer" hidden></div>
+      <div class="ask-history" id="askHistory"></div>
+    </aside>
+    <div class="review-backdrop" id="reviewBackdrop" hidden></div>
+    <section class="review-modal" id="reviewModal" aria-hidden="true" aria-label="复习中心">
+      <div class="review-header">
+        <div><p class="section-kicker">REVIEW CENTER</p><h2>复习中心</h2><p>集中处理错题和需要加强的课程。</p></div>
+        <button class="icon-button" id="closeReview" type="button" title="关闭复习中心" aria-label="关闭复习中心">×</button>
+      </div>
+      <div class="review-stats" id="reviewStats"></div>
+      <div class="review-content" id="reviewContent"></div>
+    </section>
+    <div class="review-backdrop" id="labBackdrop" hidden></div>
+    <section class="review-modal lab-modal" id="labModal" aria-hidden="true" aria-label="模拟实验">
+      <div class="review-header">
+        <div><p class="section-kicker">SAFE PRACTICE LAB</p><h2>模拟实验</h2><p>这里的文件、网址和命令都是模拟内容，不会修改真实电脑。</p></div>
+        <button class="icon-button" id="closeLab" type="button" title="关闭模拟实验" aria-label="关闭模拟实验">×</button>
+      </div>
+      <div id="labContent"></div>
+    </section>
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+    <script src="question_bank.js?v=20260822-learning-v6"></script>
+    <script src="app.js?v=20260822-learning-v6"></script>
+  </body>
+</html>
