@@ -58,9 +58,11 @@ button { cursor: pointer; }
 .mini-note { display: flex; align-items: center; gap: 8px; color: var(--muted); font-size: 11px; }
 .note-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--green); }
 .sidebar-tools { display: grid; gap: 5px; margin-top: 13px; }
-.sidebar-tool { width: 100%; min-height: 32px; display: grid; grid-template-columns: 20px 1fr auto; gap: 7px; align-items: center; padding: 0 7px; border: 0; border-radius: 5px; background: transparent; color: var(--muted); font-size: 11px; text-align: left; }
+.sidebar-tool { width: 100%; min-height: 32px; display: grid; grid-template-columns: 20px 1fr auto; gap: 7px; align-items: center; padding: 0 7px; border: 0; border-radius: 5px; background: transparent; color: var(--muted); font-size: 11px; text-align: left; text-decoration: none; }
 .sidebar-tool:hover { background: var(--surface); color: var(--green-dark); }
 .tool-count { min-width: 20px; padding: 2px 5px; border-radius: 99px; background: var(--coral-soft); color: var(--coral); font-size: 10px; font-weight: 800; text-align: center; }
+.codex-course-link { border: 1px solid #cbded3; background: var(--green-soft); color: var(--green-dark); font-weight: 800; }
+.codex-count { background: var(--surface); color: var(--green-dark); }
 .text-button { margin-top: 14px; padding: 0; border: 0; background: transparent; color: var(--muted); font-size: 11px; }
 .text-button:hover { color: var(--coral); }
 

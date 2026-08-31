@@ -29,7 +29,7 @@ jobs:
         shell: bash
         run: |
           mkdir -p _site
-          cp index.html styles.css app.js question_bank.js _site/
+          cp index.html styles.css app.js question_bank.js codex.html codex.css codex.js _site/
           cp -R exercises _site/exercises
           touch _site/.nojekyll
 
