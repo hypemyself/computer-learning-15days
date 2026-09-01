@@ -301,6 +301,7 @@ function loadState() {
 
 let state = loadState();
 let selectedCourseText = "";
+let activeDay = null;
 let toastTimer;
 
 function saveState() {
@@ -313,6 +314,123 @@ function updateProgress() {
   document.getElementById("progressText").textContent = `已完成 ${count} / 28 天`;
   document.getElementById("progressPercent").textContent = `${percent}%`;
   document.getElementById("progressBar").style.width = `${percent}%`;
+}
+
+function getDayData(dayNumber) {
+  for (let weekIndex = 0; weekIndex < weeks.length; weekIndex += 1) {
+    const item = weeks[weekIndex].days.find(day => day.day === dayNumber);
+    if (item) return { item, lesson: lessonDetails[dayNumber], week: weeks[weekIndex], weekIndex };
+  }
+  return null;
+}
+
+function setDayCompleted(day, completed) {
+  if (completed) state.completed = [...new Set([...state.completed, day])].sort((a, b) => a - b);
+  else state.completed = state.completed.filter(item => item !== day);
+  saveState();
+  updateProgress();
+  renderWeek();
+}
+
+function renderRoadmapMap() {
+  const phaseNames = ["会说清", "会完成", "会排错", "会负责"];
+  const phaseOutcomes = ["表达任务", "完成改动", "定位问题", "独立交付"];
+  document.getElementById("roadmapMapStatus").textContent = `${state.completed.length} / 28`;
+  document.getElementById("roadmapMap").innerHTML = weeks.map((week, weekIndex) => `
+    <section class="roadmap-lane week-${weekIndex + 1}" aria-label="第 ${weekIndex + 1} 周：${phaseNames[weekIndex]}">
+      <header><span>W${weekIndex + 1}</span><div><h4>${phaseNames[weekIndex]}</h4><p>${phaseOutcomes[weekIndex]}</p></div></header>
+      <div class="roadmap-days">
+        ${week.days.map(day => {
+          const done = state.completed.includes(day.day);
+          const current = activeDay === day.day;
+          return `<a class="roadmap-day ${done ? "done" : ""} ${current ? "current" : ""}" href="#day-${day.day}" data-open-day="${day.day}" aria-label="进入第 ${day.day} 天：${day.title}${done ? "，已完成" : ""}"><span>${done ? "✓" : day.day}</span><strong>${day.title}</strong></a>`;
+        }).join("")}
+      </div>
+    </section>
+  `).join("");
+}
+
+function buildDailyAgenda(item, lesson) {
+  return [
+    { time: "00–10", phase: "理解", action: `阅读“今天先懂”，然后用一句自己的话解释：${item.learn}` },
+    { time: "10–15", phase: "跟做 1", action: lesson.steps[0] },
+    { time: "15–20", phase: "跟做 2", action: lesson.steps[1] },
+    { time: "20–25", phase: "跟做 3", action: lesson.steps[2] },
+    { time: "25–30", phase: "跟做 4", action: lesson.steps[3] },
+    { time: "30–45", phase: "独立任务", action: item.task },
+    { time: "45–55", phase: "验收", action: `停止继续修改，按这条标准亲自检查：${lesson.expected}` },
+    { time: "55–60", phase: "保存记录", action: "保存今天的请求、截图或命令结果；写下“完成了什么、证据在哪里、还有什么不懂”。" }
+  ];
+}
+
+function buildDayEvidence(item, lesson, weekIndex) {
+  const weeklyEvidence = [
+    "你亲自写下的一段解释或完整任务请求",
+    "变更文件清单，以及修改前后的页面截图",
+    "原始错误、原因判断、最小改动和复测结果",
+    "需求或阶段产物、最终审查记录和演示结果"
+  ];
+  return [
+    weeklyEvidence[weekIndex],
+    `独立任务结果：${item.task}`,
+    `验收记录：${lesson.expected}`
+  ];
+}
+
+function buildDayPrompt(item, lesson) {
+  return `我正在学习 Codex 28 天入门课的第 ${item.day} 天：${item.title}。
+
+今天目标：${item.learn}
+今天的独立任务：${item.task}
+完成标准：${lesson.expected}
+
+请把我当作电脑和编程零基础新生，一次只告诉我一个操作步骤，等我回复“完成”或发来错误后再继续。不要假设我理解术语；第一次出现术语时用一句通俗的话解释。不要删除文件、覆盖原内容、安装软件或修改系统设置；确实需要时先解释目的、准确范围和可恢复方法。最后请带我按完成标准亲自验收，并提醒我保存证据。`;
+}
+
+function updateDayNavigation(link, targetDay, fallbackHash, label) {
+  link.setAttribute("aria-label", label);
+  if (targetDay) {
+    link.href = `#day-${targetDay}`;
+    link.dataset.openDay = String(targetDay);
+  } else {
+    link.href = fallbackHash;
+    delete link.dataset.openDay;
+  }
+}
+
+function renderDayWorkspace(dayNumber) {
+  const data = getDayData(dayNumber);
+  if (!data) return;
+  const { item, lesson, weekIndex } = data;
+  const workspace = document.getElementById("dayWorkspace");
+  workspace.hidden = false;
+  document.getElementById("dayWorkspacePhase").textContent = `第 ${weekIndex + 1} 周 · 第 ${item.day} 天 · 60 分钟`;
+  document.getElementById("dayWorkspaceTitle").textContent = item.title;
+  document.getElementById("dayWorkspaceLead").textContent = item.learn;
+  document.getElementById("dayPosition").textContent = `${item.day} / 28`;
+  document.getElementById("activeDayConcept").textContent = lesson.concept;
+  document.getElementById("activeDayExpected").textContent = lesson.expected;
+  document.getElementById("activeDayHelp").textContent = lesson.help;
+  document.getElementById("activeDayPrompt").textContent = buildDayPrompt(item, lesson);
+  document.getElementById("dayPromptStatus").textContent = "";
+  document.getElementById("activeDayComplete").checked = state.completed.includes(item.day);
+  document.getElementById("dailyAgenda").innerHTML = buildDailyAgenda(item, lesson).map(row => `
+    <li><time>${row.time}</time><div><strong>${row.phase}</strong><p>${row.action}</p></div></li>
+  `).join("");
+  document.getElementById("activeDayEvidence").innerHTML = buildDayEvidence(item, lesson, weekIndex).map(evidence => `<li>${evidence}</li>`).join("");
+  updateDayNavigation(document.getElementById("previousDay"), item.day > 1 ? item.day - 1 : null, "#roadmap", item.day > 1 ? `进入第 ${item.day - 1} 天` : "返回路线图");
+  updateDayNavigation(document.getElementById("nextDay"), item.day < 28 ? item.day + 1 : null, "#graduation", item.day < 28 ? `进入第 ${item.day + 1} 天` : "前往结业验收");
+}
+
+function openDay(dayNumber, options = {}) {
+  const data = getDayData(dayNumber);
+  if (!data) return;
+  activeDay = dayNumber;
+  state.week = data.weekIndex;
+  saveState();
+  renderWeek();
+  if (options.updateHash !== false && window.location.hash !== `#day-${dayNumber}`) history.pushState(null, "", `#day-${dayNumber}`);
+  if (options.scroll !== false) requestAnimationFrame(() => document.getElementById("dayWorkspace").scrollIntoView({ behavior: "smooth", block: "start" }));
 }
 
 function renderWeek() {
@@ -342,6 +460,7 @@ function renderWeek() {
           <h3>第 ${item.day} 天 · ${item.title}</h3>
           <p>${item.learn}</p>
           <div class="day-task"><span>→</span>${item.task}</div>
+          <a class="open-day-task" href="#day-${item.day}" data-open-day="${item.day}">进入第 ${item.day} 天任务界面 <span>→</span></a>
           <details class="day-guide">
             <summary>打开今日引导</summary>
             <div class="lesson-block"><strong>今天先懂</strong><p>${lesson.concept}</p></div>
@@ -357,13 +476,11 @@ function renderWeek() {
   document.querySelectorAll("[data-day]").forEach(input => {
     input.addEventListener("change", () => {
       const day = Number(input.dataset.day);
-      if (input.checked) state.completed = [...new Set([...state.completed, day])].sort((a, b) => a - b);
-      else state.completed = state.completed.filter(item => item !== day);
-      saveState();
-      updateProgress();
-      renderWeek();
+      setDayCompleted(day, input.checked);
     });
   });
+  renderRoadmapMap();
+  if (activeDay) renderDayWorkspace(activeDay);
 }
 
 function showToast(message) {
@@ -409,21 +526,14 @@ function buildPrompt() {
 请先检查现有项目并说明你的实施计划。完成后列出修改的文件、运行的验证以及仍存在的限制；如果需要执行删除、覆盖或安装操作，请先说明影响。`;
 }
 
-async function copyPrompt() {
-  const text = document.getElementById("promptOutput").textContent;
-  const status = document.getElementById("copyStatus");
-  if (text === "请先填写左侧四项内容。") {
-    status.textContent = "请先填写任务信息。";
-    return;
-  }
-  status.textContent = "正在复制…";
+async function copyText(text) {
   try {
     if (!navigator.clipboard?.writeText) throw new Error("clipboard-unavailable");
     await Promise.race([
       navigator.clipboard.writeText(text),
       new Promise((_, reject) => setTimeout(() => reject(new Error("clipboard-timeout")), 1200))
     ]);
-    status.textContent = "已复制，可以粘贴到 Codex 的输入区。";
+    return true;
   } catch (_error) {
     const helper = document.createElement("textarea");
     helper.value = text;
@@ -434,10 +544,31 @@ async function copyPrompt() {
     helper.select();
     const copied = document.execCommand("copy");
     helper.remove();
-    status.textContent = copied
-      ? "已复制，可以粘贴到 Codex 的输入区。"
-      : "浏览器未允许自动复制，请选中文字后手动复制。";
+    return copied;
   }
+}
+
+async function copyPrompt() {
+  const text = document.getElementById("promptOutput").textContent;
+  const status = document.getElementById("copyStatus");
+  if (text === "请先填写左侧四项内容。") {
+    status.textContent = "请先填写任务信息。";
+    return;
+  }
+  status.textContent = "正在复制…";
+  const copied = await copyText(text);
+  status.textContent = copied
+    ? "已复制，可以粘贴到 Codex 的输入区。"
+    : "浏览器未允许自动复制，请选中文字后手动复制。";
+}
+
+async function copyDayPrompt() {
+  const status = document.getElementById("dayPromptStatus");
+  status.textContent = "正在复制…";
+  const copied = await copyText(document.getElementById("activeDayPrompt").textContent);
+  status.textContent = copied
+    ? "已复制。现在打开 Codex 新任务并粘贴。"
+    : "浏览器未允许自动复制，请选中上方请求后手动复制。";
 }
 
 function renderQuiz() {
@@ -634,6 +765,18 @@ document.querySelectorAll("[data-practical-evidence]").forEach(input => input.ad
   saveState();
 }));
 document.getElementById("copyPrompt").addEventListener("click", copyPrompt);
+document.getElementById("copyDayPrompt").addEventListener("click", copyDayPrompt);
+document.getElementById("activeDayComplete").addEventListener("change", event => {
+  if (activeDay) setDayCompleted(activeDay, event.target.checked);
+});
+document.addEventListener("click", event => {
+  const dayLink = event.target.closest("[data-open-day]");
+  if (!dayLink) return;
+  const day = Number(dayLink.dataset.openDay);
+  if (!Number.isInteger(day) || day < 1 || day > 28) return;
+  event.preventDefault();
+  openDay(day);
+});
 document.getElementById("exportCodexProgress").addEventListener("click", exportProgress);
 document.getElementById("importCodexProgress").addEventListener("click", () => document.getElementById("codexProgressFile").click());
 document.getElementById("codexProgressFile").addEventListener("change", event => {
@@ -648,9 +791,20 @@ document.addEventListener("keyup", event => {
   if (event.key === "Shift" || event.key.startsWith("Arrow")) setTimeout(updateSelectionHelper, 0);
 });
 window.addEventListener("scroll", () => { document.getElementById("selectionHelper").hidden = true; }, { passive: true });
+window.addEventListener("hashchange", () => {
+  const match = window.location.hash.match(/^#day-(\d{1,2})$/);
+  if (match) openDay(Number(match[1]), { updateHash: false });
+  else if (activeDay) {
+    activeDay = null;
+    document.getElementById("dayWorkspace").hidden = true;
+    renderRoadmapMap();
+  }
+});
 
 updateProgress();
 renderWeek();
 renderPractical();
 renderQuiz();
 buildPrompt();
+const initialDayMatch = window.location.hash.match(/^#day-(\d{1,2})$/);
+if (initialDayMatch) openDay(Number(initialDayMatch[1]), { updateHash: false });

@@ -6,7 +6,7 @@
     <meta name="theme-color" content="#f4f5f2" />
     <meta name="description" content="面向电脑零基础大学新生的 28 天 Codex 入门课程。" />
     <title>Codex 入门课 | 28 天学习路线</title>
-    <link rel="stylesheet" href="codex.css?v=20260901-codex-v2" />
+    <link rel="stylesheet" href="codex.css?v=20260901-codex-v3" />
   </head>
   <body>
     <a class="skip-link" href="#mainContent">跳到主要内容</a>
@@ -196,7 +196,13 @@
         <div class="section-inner">
           <div class="section-heading">
             <div><p class="section-label">02 / 28-DAY ROADMAP</p><h2 id="roadmapTitle">每天 45–60 分钟，四周建立独立能力</h2></div>
-            <p>每次只完成一个小闭环：10 分钟理解，25 分钟跟做，15 分钟独立完成，最后 5 分钟记录问题。</p>
+            <p>每一天都有独立任务界面和 60 分钟时间表。点击总览图中的任意一天，可直接进入当天操作、验收和证据清单。</p>
+          </div>
+
+          <div class="roadmap-overview" aria-labelledby="roadmapMapTitle">
+            <div class="overview-heading"><div><h3 id="roadmapMapTitle">28 天任务导航图</h3><p>从左到右依次完成；圆点变为绿色表示当天已完成。</p></div><span id="roadmapMapStatus">0 / 28</span></div>
+            <div class="roadmap-map" id="roadmapMap"></div>
+            <div class="roadmap-key" aria-label="路线图图例"><span><i class="key-current"></i>当前查看</span><span><i class="key-done"></i>已经完成</span><span><i></i>尚未完成</span></div>
           </div>
 
           <div class="week-switcher" role="tablist" aria-label="选择学习周">
@@ -207,6 +213,47 @@
           </div>
           <div class="week-summary" id="weekSummary" aria-live="polite"></div>
           <div class="day-grid" id="dayGrid"></div>
+
+          <section class="day-workspace" id="dayWorkspace" aria-labelledby="dayWorkspaceTitle" hidden>
+            <header class="day-workspace-header">
+              <div><p class="section-label" id="dayWorkspacePhase">DAY TASK</p><h3 id="dayWorkspaceTitle">当天任务</h3><p id="dayWorkspaceLead"></p></div>
+              <div class="day-navigation" aria-label="切换每日任务"><a id="previousDay" href="#roadmap" aria-label="上一天">←</a><span id="dayPosition">1 / 28</span><a id="nextDay" href="#day-2" aria-label="下一天">→</a></div>
+            </header>
+
+            <div class="time-allocation" aria-labelledby="timeAllocationTitle">
+              <div class="time-allocation-heading"><h4 id="timeAllocationTitle">今天的 60 分钟怎样分配</h4><span>总计 60 分钟</span></div>
+              <div class="time-chart" role="img" aria-label="60 分钟时间分配图：理解 10 分钟，跟做 20 分钟，独立任务 15 分钟，验收 10 分钟，记录 5 分钟">
+                <div class="time-understand" style="--share:16.667%"><strong>理解</strong><span>10 分钟</span></div>
+                <div class="time-follow" style="--share:33.333%"><strong>跟做</strong><span>20 分钟</span></div>
+                <div class="time-independent" style="--share:25%"><strong>独立任务</strong><span>15 分钟</span></div>
+                <div class="time-verify" style="--share:16.667%"><strong>验收</strong><span>10 分钟</span></div>
+                <div class="time-record" style="--share:8.333%"><strong>记录</strong><span>5 分钟</span></div>
+              </div>
+            </div>
+
+            <div class="day-workspace-layout">
+              <div class="daily-agenda">
+                <h4>按时间执行</h4>
+                <ol id="dailyAgenda"></ol>
+              </div>
+              <aside class="daily-side">
+                <section><h4>今天先懂</h4><p id="activeDayConcept"></p></section>
+                <section><h4>你要提交的证据</h4><ul id="activeDayEvidence"></ul></section>
+                <section class="day-expected"><h4>完成标准</h4><p id="activeDayExpected"></p></section>
+                <section class="day-help"><h4>卡住时怎么办</h4><p id="activeDayHelp"></p></section>
+              </aside>
+            </div>
+
+            <div class="day-start-prompt">
+              <div><h4>把今天的任务交给 Codex 逐步带你做</h4><p>复制后粘贴到 Codex 输入区。它会一次只给你一个步骤。</p></div>
+              <pre id="activeDayPrompt"></pre>
+              <div class="day-workspace-actions">
+                <button class="secondary-action" id="copyDayPrompt" type="button">复制今日请求</button>
+                <label class="task-complete"><input id="activeDayComplete" type="checkbox" /><span>我已达到完成标准</span></label>
+              </div>
+              <p id="dayPromptStatus" role="status" aria-live="polite"></p>
+            </div>
+          </section>
           <noscript><p class="noscript-note">请启用 JavaScript，以使用每日勾选和进度保存功能。</p></noscript>
         </div>
       </section>
@@ -331,6 +378,6 @@
 
     <button class="selection-helper" id="selectionHelper" type="button" hidden title="把选中文字放入提问练习" aria-label="把选中文字放入提问练习">?</button>
     <div class="toast" id="toast" role="status" aria-live="polite"></div>
-    <script src="codex.js?v=20260901-codex-v2"></script>
+    <script src="codex.js?v=20260901-codex-v3"></script>
   </body>
 </html>
