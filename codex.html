@@ -6,7 +6,7 @@
     <meta name="theme-color" content="#f4f5f2" />
     <meta name="description" content="面向电脑零基础大学新生的 28 天 Codex 入门课程。" />
     <title>Codex 入门课 | 28 天学习路线</title>
-    <link rel="stylesheet" href="codex.css?v=20260831-codex-v1" />
+    <link rel="stylesheet" href="codex.css?v=20260901-codex-v2" />
   </head>
   <body>
     <a class="skip-link" href="#mainContent">跳到主要内容</a>
@@ -17,10 +17,11 @@
         <span><strong>Codex 入门课</strong><small>新生电脑课 · 进阶路线</small></span>
       </a>
       <nav class="header-nav" aria-label="Codex 课程导航">
+        <a href="#scope">学习范围</a>
         <a href="#interface">认识界面</a>
         <a href="#roadmap">28 天计划</a>
         <a href="#prompt-lab">提问练习</a>
-        <a href="#graduation">结业测验</a>
+        <a href="#graduation">实践验收</a>
       </nav>
       <a class="back-course" href="index.html">返回电脑课</a>
     </header>
@@ -36,7 +37,7 @@
               <a class="primary-action" href="#roadmap">开始第 1 周</a>
               <a class="secondary-action" href="#interface">先认识界面</a>
             </div>
-            <p class="version-note"><span aria-hidden="true">i</span> 界面示意按当前 Codex 桌面工作方式制作；具体位置可能随版本和账号权限变化。</p>
+            <p class="version-note"><span aria-hidden="true">i</span> 当前路线聚焦 Codex 桌面应用。内容校准于 2026-09-01，具体位置可能随版本和账号权限变化。</p>
           </div>
 
           <div class="mastery-scale" aria-label="Codex 学习所需时间">
@@ -64,7 +65,31 @@
           </div>
           <div class="course-progress" aria-hidden="true"><span id="progressBar"></span></div>
           <span class="progress-percent" id="progressPercent">0%</span>
-          <button class="icon-command" id="resetProgress" type="button" title="重置 Codex 学习进度" aria-label="重置 Codex 学习进度">↻</button>
+          <div class="progress-tools">
+            <button class="icon-command" id="exportCodexProgress" type="button" title="导出 Codex 学习进度" aria-label="导出 Codex 学习进度">↓</button>
+            <button class="icon-command" id="importCodexProgress" type="button" title="导入 Codex 学习进度" aria-label="导入 Codex 学习进度">↑</button>
+            <button class="icon-command" id="resetProgress" type="button" title="重置 Codex 学习进度" aria-label="重置 Codex 学习进度">↻</button>
+            <input id="codexProgressFile" type="file" accept="application/json,.json" hidden />
+          </div>
+        </div>
+      </section>
+
+      <section class="scope-band" id="scope" aria-labelledby="scopeTitle">
+        <div class="section-inner">
+          <div class="section-heading">
+            <div><p class="section-label">00 / LEARNING SURFACES</p><h2 id="scopeTitle">先学桌面应用，再选择进阶入口</h2></div>
+            <p>三种入口共享同一套核心方法，但界面和适用场景不同。零基础阶段不要同时学习三套操作。</p>
+          </div>
+          <div class="surface-grid">
+            <article class="surface-item current"><span>当前路线</span><div class="surface-mark" aria-hidden="true">▣</div><h3>Codex 桌面应用</h3><p>适合从项目、任务、网页预览和代码审查开始，28 天课程主要讲这一入口。</p><strong>现在学习</strong></article>
+            <article class="surface-item"><span>完成第 3 周后</span><div class="surface-mark" aria-hidden="true">&gt;_</div><h3>Codex CLI</h3><p>在终端中使用，适合已经理解路径、命令、Git 和测试流程的学习者。</p><strong>后续 7 天进阶</strong></article>
+            <article class="surface-item"><span>完成 Python 入门后</span><div class="surface-mark" aria-hidden="true">⌘</div><h3>IDE 集成</h3><p>在代码编辑器中边阅读边修改，适合已经能分辨文件与代码结构的学习者。</p><strong>后续 7 天进阶</strong></article>
+          </div>
+          <div class="prerequisite-strip">
+            <div><strong>开始前建议掌握</strong><p>不必全部精通，但遇到这些词时不能完全陌生。</p></div>
+            <ul><li>文件与文件夹</li><li>账号安全</li><li>故障记录</li><li>PowerShell 路径</li><li>Python / VS Code</li></ul>
+            <a href="index.html">返回电脑基础课补齐</a>
+          </div>
         </div>
       </section>
 
@@ -113,6 +138,33 @@
               </div>
             </div>
           </figure>
+
+          <div class="mobile-interface-story" aria-label="Codex 桌面应用六个主要区域的手机图解">
+            <article>
+              <div class="mobile-visual visual-projects" aria-hidden="true"><span>＋ 新任务</span><strong>computer-learning</strong><i>增加学习页面</i><i>检查手机布局</i></div>
+              <div><span>01</span><h3>项目与任务</h3><p>先选工作文件夹，再为一个明确目标创建任务。同一目标的补充问题留在同一任务里。</p></div>
+            </article>
+            <article>
+              <div class="mobile-visual visual-chat" aria-hidden="true"><span>你：增加一个练习区</span><strong>Codex：我先检查现有结构…</strong></div>
+              <div><span>02</span><h3>当前对话</h3><p>这里保存你的要求、Codex 的计划和后续追问。它是一次任务的完整记录。</p></div>
+            </article>
+            <article>
+              <div class="mobile-visual visual-activity" aria-hidden="true"><span>✓ 已读取项目文件</span><span>→ 正在修改页面</span><span>○ 等待运行测试</span></div>
+              <div><span>03</span><h3>执行动态</h3><p>观察它读了什么、改了什么、运行了什么。遇到陌生命令，可以先要求解释。</p></div>
+            </article>
+            <article>
+              <div class="mobile-visual visual-input" aria-hidden="true"><span>描述你希望完成的任务…</span><i>＋</i><b>发送 ↑</b></div>
+              <div><span>04</span><h3>输入区</h3><p>写下目标、范围、约束和验收，也可以添加与问题直接相关的截图或文件。</p></div>
+            </article>
+            <article>
+              <div class="mobile-visual visual-tabs" aria-hidden="true"><strong>文件</strong><span>终端</span><span>审查</span><i>M codex.html</i><i>M codex.js</i></div>
+              <div><span>05</span><h3>工作区标签</h3><p>在文件、终端、网页预览和审查之间切换。你看到的标签会随任务变化。</p></div>
+            </article>
+            <article>
+              <div class="mobile-visual visual-results" aria-hidden="true"><strong>✓ 页面可以打开</strong><strong>✓ 手机布局通过</strong><span>0 个控制台错误</span></div>
+              <div><span>06</span><h3>验证结果</h3><p>不要只相信“完成”。亲自查看页面、测试结果、错误信息和变更文件。</p></div>
+            </article>
+          </div>
 
           <ol class="map-legend">
             <li><span>1</span><div><strong>项目与任务</strong><p>选择 Codex 可以读取和修改的项目，并在不同任务之间切换。</p></div></li>
@@ -182,6 +234,16 @@
             </form>
             <div class="prompt-preview">
               <div class="preview-heading"><span>生成的任务请求</span><button id="copyPrompt" type="button">复制</button></div>
+              <div class="prompt-quality" aria-live="polite">
+                <div><strong id="promptScore">0 / 4</strong><span>任务清晰度</span></div>
+                <ul>
+                  <li id="qualityGoal">目标具体</li>
+                  <li id="qualityScope">范围明确</li>
+                  <li id="qualityConstraint">约束完整</li>
+                  <li id="qualityAcceptance">验收可检查</li>
+                </ul>
+                <p id="promptFeedback">先填写四项内容，系统会告诉你还缺什么。</p>
+              </div>
               <pre id="promptOutput">请先填写左侧四项内容。</pre>
               <p id="copyStatus" role="status" aria-live="polite"></p>
             </div>
@@ -214,8 +276,31 @@
         <div class="section-inner">
           <div class="section-heading">
             <div><p class="section-label">05 / GRADUATION CHECK</p><h2 id="graduationTitle">你是否已经能独立使用 Codex？</h2></div>
-            <p>先独立作答，再检查答案。答对 4 题以上，并完成 28 天项目，说明你已达到“小项目独立使用”水平。</p>
+            <p>先用真实证据完成实践验收，再做知识题。实践 4 项全部达标、知识题答对 4 题以上，并完成 28 天项目，才达到“小项目独立使用”水平。</p>
           </div>
+
+          <div class="assessment-heading"><span>第一关</span><div><h3>实践验收</h3><p>勾选你已经亲自完成的操作，并写下证据。仅勾选但没有证据不会通过。</p></div></div>
+          <form class="practical-list" id="practicalForm">
+            <article data-practical-card="brief">
+              <label><input type="checkbox" data-practical-check="brief" /><span><strong>写出四段式任务请求</strong><small>合格证据：写出目标、范围、约束和验收，或说明保存在哪里。</small></span></label>
+              <textarea data-practical-evidence="brief" rows="2" placeholder="例如：我在提问练习中写了“给课程页增加返回按钮…”，四项得分 4/4。"></textarea>
+            </article>
+            <article data-practical-card="scope">
+              <label><input type="checkbox" data-practical-check="scope" /><span><strong>完成一次小范围文件修改</strong><small>合格证据：写清项目、修改的文件和实际变化。</small></span></label>
+              <textarea data-practical-evidence="scope" rows="2" placeholder="例如：在练习网站中只修改了 index.html，把页面标题改成“学习记录”。"></textarea>
+            </article>
+            <article data-practical-card="review">
+              <label><input type="checkbox" data-practical-check="review" /><span><strong>复核并解释变更文件</strong><small>合格证据：说明你检查了哪些文件，以及为什么这些改动属于任务范围。</small></span></label>
+              <textarea data-practical-evidence="review" rows="2" placeholder="例如：我查看了变更列表，只有 index.html 被修改，没有出现无关文件。"></textarea>
+            </article>
+            <article data-practical-card="verify">
+              <label><input type="checkbox" data-practical-check="verify" /><span><strong>运行一次真实验证</strong><small>合格证据：写出测试、命令或手动操作及结果，不能只写“已经测试”。</small></span></label>
+              <textarea data-practical-evidence="verify" rows="2" placeholder="例如：我在 Edge 打开页面，点击返回按钮后进入首页，手机宽度下也没有横向滚动。"></textarea>
+            </article>
+          </form>
+          <div class="quiz-actions practical-actions"><button class="primary-action" id="checkPractical" type="button">检查实践证据</button><p id="practicalResult" role="status" aria-live="polite">尚未检查</p></div>
+
+          <div class="assessment-heading knowledge-heading"><span>第二关</span><div><h3>知识测验</h3><p>完成全部 5 题后检查答案，答错时根据解析回到对应板块复习。</p></div></div>
           <form class="quiz-list" id="quizForm"></form>
           <div class="quiz-actions"><button class="primary-action" id="checkQuiz" type="button">检查答案</button><p id="quizResult" role="status" aria-live="polite">尚未检查</p></div>
 
@@ -246,6 +331,6 @@
 
     <button class="selection-helper" id="selectionHelper" type="button" hidden title="把选中文字放入提问练习" aria-label="把选中文字放入提问练习">?</button>
     <div class="toast" id="toast" role="status" aria-live="polite"></div>
-    <script src="codex.js?v=20260831-codex-v1"></script>
+    <script src="codex.js?v=20260901-codex-v2"></script>
   </body>
 </html>
