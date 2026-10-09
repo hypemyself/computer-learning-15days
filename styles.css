@@ -24,7 +24,7 @@
 
 * { box-sizing: border-box; }
 [hidden] { display: none !important; }
-body { margin: 0; min-width: 320px; background: var(--paper); }
+body { margin: 0; background: var(--paper); }
 button, input, textarea { font: inherit; }
 button { cursor: pointer; }
 
@@ -128,6 +128,10 @@ button { cursor: pointer; }
 .step-action { align-self: center; padding: 7px 10px; border: 1px solid var(--line-strong); border-radius: 5px; background: transparent; color: var(--green); font-size: 11px; font-weight: 700; white-space: nowrap; }
 .step-action:hover { border-color: var(--green); background: var(--green-soft); }
 .step-action.done-action { color: var(--muted); }
+.lesson-resources { display: flex; align-items: center; gap: 8px 14px; flex-wrap: wrap; margin-top: 19px; padding-top: 13px; border-top: 1px solid var(--line); font-size: 11px; }
+.lesson-resources strong { color: var(--ink); }
+.lesson-resources a { color: var(--green-dark); text-decoration: underline; text-underline-offset: 2px; }
+.lesson-resources a:hover { color: var(--coral); }
 .practice-layout { display: grid; gap: 15px; }
 .practice-card { padding: 18px; border: 1px solid var(--line); border-radius: var(--radius); background: var(--surface); }
 .practice-card h3 { margin: 0 0 4px; font-size: 15px; }
@@ -137,6 +141,13 @@ button { cursor: pointer; }
 .check-row input { width: 16px; height: 16px; margin-top: 1px; accent-color: var(--green); }
 .check-row label { color: var(--ink); font-size: 12px; line-height: 1.55; }
 .check-row:has(input:checked) label { color: var(--muted); text-decoration: line-through; }
+.evidence-band { padding: 14px 17px; border-left: 3px solid var(--green); background: var(--green-soft); }
+.evidence-band strong, .review-links strong { display: block; margin-bottom: 7px; color: var(--green-dark); font-size: 12px; }
+.evidence-band p { margin: 4px 0; color: var(--ink); font-size: 11px; line-height: 1.65; }
+.review-links { padding: 2px 0; }
+.review-links > div { display: flex; flex-wrap: wrap; gap: 7px; }
+.review-links button { padding: 7px 9px; border: 1px solid var(--line-strong); border-radius: 5px; background: var(--surface); color: var(--green-dark); font-size: 11px; }
+.review-links button:hover { border-color: var(--green); background: var(--green-soft); }
 .challenge { padding: 17px; border: 1px solid #ecd8a9; border-radius: var(--radius); background: var(--gold-soft); }
 .challenge h4 { margin: 0 0 6px; color: #8a621e; font-size: 13px; }
 .challenge p { margin: 0; color: #745b2b; font-size: 12px; line-height: 1.65; }
@@ -220,6 +231,10 @@ button { cursor: pointer; }
 .folder-node { display: grid; gap: 6px; justify-items: center; color: var(--muted); font-size: 10px; text-align: center; }
 .folder-node strong { width: 42px; height: 32px; display: grid; place-items: center; border-radius: 5px; background: #f2c975; color: #8d6722; font-size: 18px; }
 .folder-arrow { color: var(--green); font-size: 18px; }
+.workflow-visual { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 4px; align-items: center; min-height: 132px; padding: 15px 11px; background: #eef4f0; }
+.workflow-item { display: grid; justify-items: center; gap: 8px; min-width: 0; color: var(--green-dark); font-size: 10px; text-align: center; }
+.workflow-item b { width: 28px; height: 28px; display: grid; place-items: center; border-radius: 50%; background: var(--surface); border: 1px solid #bbd6c6; color: var(--green); font-size: 11px; }
+.workflow-item span { overflow-wrap: anywhere; line-height: 1.35; }
 .url-visual { padding: 16px; background: #edf2f5; }
 .url-bar { padding: 8px 9px; overflow: hidden; border: 1px solid #c7d6df; border-radius: 5px; background: white; color: var(--blue); font: 10px Consolas, monospace; white-space: nowrap; }
 .url-parts { display: flex; gap: 11px; margin-top: 12px; color: var(--muted); font-size: 9px; }

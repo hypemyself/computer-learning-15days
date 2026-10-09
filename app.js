@@ -48,10 +48,11 @@ const lessons = [
     title: "建立你的文件秩序",
     summary: "文件管理是大学学习的地基。今天建立一个清晰的“大学学习”文件夹，并学会找回资料。",
     duration: "60 分钟",
-    goals: ["理解文件、文件夹和路径", "完成新建、重命名、复制、移动和删除", "用搜索快速找回文件"],
-    concepts: [["文件", "一份具体内容，例如照片、文档、PDF 或程序。"], ["文件夹", "装文件的容器，可以继续套文件夹。"], ["路径", "描述文件在哪里，例如“文档\大学学习\第 1 天”。"], ["回收站", "删除的普通文件会暂时放在这里，误删时可以还原。"]],
-    steps: [["打开文件资源管理器", "按 Win+E，左侧找到“文档”。这里适合存放自己的学习资料。", "打开资源管理器"], ["建立层级", "在文档中创建“大学学习”，再创建“电脑课”和“Python”两个子文件夹。", "创建文件夹"], ["保存练习文件", "打开记事本，输入“我的第一份电脑课笔记”，另存为到“电脑课”文件夹，文件名写成 Day01-笔记.txt。", "保存笔记"], ["复制、移动和恢复", "右键文件分别试试复制和移动；再删除一个测试文件，打开回收站把它还原。", "整理一次"]],
-    practice: { title: "资料库搭建", intro: "把下面这套结构真实建出来，它会成为接下来 15 天的学习空间。", tasks: ["在文档中建立 大学学习\电脑课、大学学习\Python", "把 Day01-笔记.txt 保存进电脑课文件夹", "搜索 Day01-笔记.txt，并从回收站还原一个测试文件"], challenge: "小挑战：给文件名加上日期或版本号，例如“Day03-文件练习-v1”，以后更容易找到最新版本。" },
+    goals: ["理解文件、文件夹和路径", "完成新建、重命名、复制、移动和删除", "用搜索快速找回文件", "认出扩展名，打包 ZIP，并从副本恢复测试文件"],
+    concepts: [["文件", "一份具体内容，例如照片、文档、PDF 或程序。"], ["文件夹", "装文件的容器，可以继续套文件夹。"], ["路径", "描述文件在哪里，例如“文档 > 大学学习 > 第 1 天”。"], ["回收站", "删除的普通文件会暂时放在这里，误删时可以还原。"], ["扩展名", "文件名最后一个点后面的字母，例如 .txt、.pdf 或 .exe，提示文件类型。"], ["ZIP 压缩包", "把多个文件打包成一个 .zip 文件；使用前可以“全部提取”并检查内容。"], ["备份与恢复", "在另一位置保留可打开的副本，原文件出问题时再复制回来。"]],
+    steps: [["打开文件资源管理器", "按 Win+E，左侧找到“文档”。这里适合存放自己的学习资料。", "打开资源管理器"], ["建立层级", "在文档中创建“大学学习”，再创建“电脑课”和“Python”两个子文件夹。", "创建文件夹"], ["保存练习文件", "打开记事本，输入“我的第一份电脑课笔记”，另存为到“电脑课”文件夹，文件名写成 Day01-笔记.txt。", "保存笔记"], ["复制、移动和恢复", "右键文件分别试试复制和移动；再删除一个测试文件，打开回收站把它还原。", "整理一次"], ["显示扩展名并打包", "在文件资源管理器选择“查看 > 显示 > 文件扩展名”，确认练习文件以 .txt 结尾。右键测试文件，选择“压缩为 ZIP 文件”；若没有该项，试“显示更多选项 > 发送到 > 压缩(zipped)文件夹”。用“全部提取”解压，打开内容核对。", "检查 ZIP"], ["从副本恢复", "只使用自己新建的测试文件。先复制到另一位置并打开副本；把原文件改名为“模拟丢失.txt”，再把副本复制回原处，打开核对文字。不删除原件；同一块磁盘上的副本仅算演练，不算可靠备份。", "完成恢复"]],
+    practice: { title: "资料库搭建", intro: "继续使用同一份测试笔记练习，不动系统文件或真实作业。", tasks: ["在文档中建立 大学学习 > 电脑课、大学学习 > Python", "把 Day01-笔记.txt 保存进电脑课文件夹", "搜索 Day01-笔记.txt，并从回收站还原一个测试文件", "显示扩展名，将测试文件打成 .zip；“全部提取”后打开文件，确认文字未丢", "先打开备份副本，再模拟原件丢失并复制恢复；恢复后的文件内容与副本一致"], challenge: "小挑战：给文件名加上日期或版本号，例如“Day03-文件练习-v1”，以后更容易找到最新版本。", evidence: ["产出：原文件、可解压的 ZIP、恢复后的测试文件。", "核对：三个文件都能打开且文字一致；只存在同一磁盘的副本不算独立备份。"] },
+    resources: [["微软：压缩和解压文件", "https://support.microsoft.com/zh-cn/windows/experience/storage-filemanagement/zip-and-unzip-files"], ["微软：文件历史记录备份与恢复", "https://support.microsoft.com/zh-cn/windows/experience/backup-recovery/backup-and-restore-with-file-history"]],
     quiz: [["路径用来描述什么？", ["文件所在的位置", "屏幕的亮度", "电池的容量"], 0, "路径像地址，告诉你文件位于哪一层文件夹。"], ["删除的普通文件先去了哪里？", ["永久消失", "回收站", "浏览器下载页"], 1, "清空回收站后才更难恢复，所以删除前要确认。"], ["最适合大学资料的命名方式是？", ["新建文档(7)", "aaaa", "课程-日期-内容"], 2, "有信息量的名字能显著降低寻找成本。"]]
   },
   {
@@ -72,10 +73,10 @@ const lessons = [
     title: "浏览器与互联网",
     summary: "浏览器是你的资料入口。今天学习搜索、标签页、收藏和下载，同时建立第一道安全判断。",
     duration: "60 分钟",
-    goals: ["理解网址、搜索词和标签页", "判断搜索结果是否值得信任", "安全下载并找到下载的文件"],
-    concepts: [["网址", "浏览器地址栏里的地址，通常以 https:// 开头。"], ["搜索词", "告诉搜索引擎你想找什么，越具体越容易得到好结果。"], ["标签页", "一个浏览器窗口里的多个页面，可以用 Ctrl+T 新建。"], ["下载", "把网络上的文件保存到电脑；下载前先确认来源和文件类型。"]],
-    steps: [["认识地址栏", "打开浏览器，点击顶部地址栏，输入一个你熟悉的官方网站地址。地址栏也可以直接作为搜索框。", "打开网址"], ["搜索一个问题", "搜索“大学新生电脑文件整理方法”，对比前三个结果的来源、日期和内容。", "搜索资料"], ["管理标签页", "用 Ctrl+T 新建标签页，Ctrl+W 关闭，Ctrl+Shift+T 恢复刚关闭的标签页。", "管理标签"], ["找到下载文件", "下载一个来自可信官网的 PDF，按 Ctrl+J 查看下载记录，再在文件资源管理器的“下载”中找到它。", "找回下载"]],
-    practice: { title: "搜索与判断", intro: "完成一次小型资料检索，不要只看第一个结果。", tasks: ["用三个不同关键词搜索同一个问题", "打开两个来源，记录作者、日期和网站域名", "在下载记录和下载文件夹中找到一个 PDF"], challenge: "小挑战：看到“免费领取”“立即输入验证码”等字样时，先关闭页面，不要提交个人信息。" },
+    goals: ["理解网址、搜索词和标签页", "判断搜索结果是否值得信任", "安全下载并找到下载的文件", "为一条学习资料留下来源，核查 AI 回答中的事实"],
+    concepts: [["网址", "浏览器地址栏里的地址，通常以 https:// 开头。"], ["搜索词", "告诉搜索引擎你想找什么，越具体越容易得到好结果。"], ["标签页", "一个浏览器窗口里的多个页面，可以用 Ctrl+T 新建。"], ["下载", "把网络上的文件保存到电脑；下载前先确认来源和文件类型。"], ["资料引用", "记下作者或机构、标题、日期和网址，让自己和别人能重新找到依据。"], ["AI 回答核验", "把 AI 给出的具体说法当作待核实信息，用可靠原始来源复查。"]],
+    steps: [["认识地址栏", "打开浏览器，点击顶部地址栏，输入一个你熟悉的官方网站地址。地址栏也可以直接作为搜索框。", "打开网址"], ["搜索一个问题", "搜索“大学新生电脑文件整理方法”，对比前三个结果的来源、日期和内容。", "搜索资料"], ["管理标签页", "用 Ctrl+T 新建标签页，Ctrl+W 关闭，Ctrl+Shift+T 恢复刚关闭的标签页。", "管理标签"], ["找到下载文件", "下载一个来自可信官网的 PDF，按 Ctrl+J 查看下载记录，再在文件资源管理器的“下载”中找到它。", "找回下载"], ["核对一条说法", "从 AI 回答中选一句可以核查的事实；没有 AI 时用示例“有 https 的网站一定真实”。找原机构说明和另一可靠来源，对比是否一致，并记录标题、日期和网址。无法核实就写“待核实”，不要当作事实引用。", "核对来源"]],
+    practice: { title: "搜索与判断", intro: "沿用同一个检索问题，留下能回查的来源。", tasks: ["用三个不同关键词搜索同一个问题", "打开两个来源，记录作者、日期和网站域名", "在下载记录和下载文件夹中找到一个 PDF", "记录一条可核查的说法、两条来源的标题和网址，写明一致、冲突或待核实"], challenge: "小挑战：看到“免费领取”“立即输入验证码”等字样时，先关闭页面，不要提交个人信息。", evidence: ["产出：一条说法 + 两条可重新打开的来源链接 + 你的核查结论。", "核对：链接确实支持结论；找不到依据时明确标注“待核实”。"] },
     quiz: [["地址栏还可以用来做什么？", ["直接搜索关键词", "清理键盘", "显示电池内部结构"], 0, "现代浏览器会把非网址文字交给搜索引擎。"], ["一个可信资料来源通常有？", ["作者、日期和清晰来源", "只有巨大标题", "要求你先输入验证码"], 0, "来源信息越完整，越方便你核查。"], ["Ctrl+Shift+T 的用途是？", ["恢复刚关闭的标签页", "打开任务管理器", "保存 PDF"], 0, "误关页面时可以用它恢复。"]]
   },
   {
@@ -84,10 +85,10 @@ const lessons = [
     title: "账号与电脑安全",
     summary: "安全不是吓自己，而是养成几个稳定动作：独立密码、双重验证、识别诱导和及时更新。",
     duration: "60 分钟",
-    goals: ["为不同服务使用不同密码", "识别常见钓鱼诱导", "知道 Windows Defender 和更新的作用"],
-    concepts: [["密码管理", "密码越长越好，重要账号不要复用同一个密码。"], ["双重验证", "除密码外再用手机或验证器确认身份。"], ["钓鱼", "伪装成学校、银行或平台，诱导你点击链接或交出信息。"], ["更新", "修复已知漏洞并改善稳定性，通常应及时安装。"]],
-    steps: [["检查密码习惯", "列出你使用的三个重要账号，确认它们没有共用完全相同的密码；不要把真实密码发给我。", "做一次检查"], ["学会看域名", "观察网址中真正的域名位置。拼写、后缀、https 和页面内容都要一起判断。", "看懂域名"], ["认识 Defender", "在 Windows 设置中搜索“Windows 安全中心”，查看病毒和威胁防护是否正常。", "查看安全中心"], ["建立更新习惯", "设置中搜索 Windows 更新，查看是否有待处理更新；更新前保存正在编辑的文件。", "查看更新"]],
-    practice: { title: "安全判断练习", intro: "下面三项都完成后，你会有一套可重复的安全动作。", tasks: ["为一个重要账号开启双重验证（如果服务支持）", "检查 Windows 安全中心的防护状态", "在不打开链接的前提下，比较两个网址的域名"], challenge: "小挑战：任何人通过聊天索要密码、验证码或远程控制权限，都先停止沟通并通过官方渠道核实。" },
+    goals: ["为不同服务使用不同密码", "识别常见钓鱼诱导", "知道 Windows Defender 和更新的作用", "分享截图或使用 AI 前保护个人信息"],
+    concepts: [["密码管理", "密码越长越好，重要账号不要复用同一个密码。"], ["双重验证", "除密码外再用手机或验证器确认身份。"], ["钓鱼", "伪装成学校、银行或平台，诱导你点击链接或交出信息。"], ["更新", "修复已知漏洞并改善稳定性，通常应及时安装。"], ["隐私信息", "姓名、学号、联系方式、住址、验证码和未公开作业都可能不适合发到公开网页或 AI 工具。"]],
+    steps: [["检查密码习惯", "列出你使用的三个重要账号，确认它们没有共用完全相同的密码；不要把真实密码发给我。", "做一次检查"], ["学会看域名", "观察网址中真正的域名位置。拼写、后缀、https 和页面内容都要一起判断。", "看懂域名"], ["认识 Defender", "在 Windows 设置中搜索“Windows 安全中心”，查看病毒和威胁防护是否正常。", "查看安全中心"], ["建立更新习惯", "设置中搜索 Windows 更新，查看是否有待处理更新；更新前保存正在编辑的文件。", "查看更新"], ["公开前先脱敏", "使用虚构姓名和学号写一段示例文字，再删除或遮挡可识别信息。回看第 4 天的练习截图，检查账号、通知和文件名；不要把真实密码、验证码或身份证信息交给 AI。", "检查隐私"]],
+    practice: { title: "安全判断练习", intro: "沿用现有截图或虚构示例，不需要提交真实个人资料。", tasks: ["为一个重要账号开启双重验证（如果服务支持）", "检查 Windows 安全中心的防护状态", "在不打开链接的前提下，比较两个网址的域名", "检查一张准备分享的练习截图，遮挡或裁掉个人信息；列出三类不应交给陌生网站或 AI 的内容"], challenge: "小挑战：任何人通过聊天索要密码、验证码或远程控制权限，都先停止沟通并通过官方渠道核实。", evidence: ["产出：一张不含真实隐私的示例截图或一份自查记录。", "核对：姓名、学号、账号、通知和验证码均未暴露；真实秘密不必上传证明。"] },
     quiz: [["重要账号的密码应该？", ["全部使用同一个", "尽量独立且足够长", "只用生日"], 1, "密码复用会让一个泄露影响多个账号。"], ["钓鱼信息最常见的目的？", ["帮助你学习", "诱导你交出信息或点击危险链接", "自动整理文件"], 1, "紧迫感和恐吓是常见诱导手段。"], ["系统更新通常为什么重要？", ["修复漏洞和改善稳定性", "让键盘变重", "删除所有文件"], 0, "更新前保存文件并使用官方更新入口即可。"]]
   },
   {
@@ -130,12 +131,13 @@ const lessons = [
     day: 10,
     kicker: "PRESENT / DAY 10",
     title: "演示文稿与大学任务",
-    summary: "从写作到展示，再到提交文件。今天练习一页一观点、图文层级和发送附件。",
+    summary: "从写作到展示，再到提交核验。今天不仅练习添加附件，还要确认文件确实能被打开。",
     duration: "60 分钟",
-    goals: ["做出结构清晰的 3 页 PPT", "控制每页信息量", "正确提交附件并检查文件格式"],
-    concepts: [["一页一观点", "每张幻灯片只服务一个主要结论，听众更容易跟上。"], ["视觉层级", "标题最大，说明次之，细节最小，颜色只用来强调。"], ["附件", "发送邮件时要确认文件已上传，并检查文件名和大小。"], ["云盘", "适合在不同设备访问文件，但重要资料仍要保留本机或备份。"]],
-    steps: [["搭建三页结构", "第 1 页写主题和姓名，第 2 页写三个要点，第 3 页写总结和下一步。", "搭建结构"], ["减少文字", "把长段落改成短句和关键词，保证远处也能读到标题。", "压缩文字"], ["检查展示", "从头播放一次，检查动画是否干扰内容、图片是否清晰、字体是否超出边界。", "播放检查"], ["模拟提交", "新建一封草稿邮件，添加 PDF 或 PPT 附件，确认附件名称后再删除草稿。不要发送给陌生人。", "模拟提交"]],
-    practice: { title: "三页自我介绍", intro: "用虚构或公开信息制作三页“我的大学学习计划”。", tasks: ["完成三页内容，每页都有清晰标题", "播放检查一次，并修正超出边界的文字", "把演示文稿导出为 PDF，检查附件名称"], challenge: "小挑战：让同学只看标题就能说出每页的主要结论。" },
+    goals: ["做出结构清晰的 3 页 PPT", "控制每页信息量", "正确提交附件并检查文件格式", "区分模拟提交与真正提交，能核对回执或上传状态"],
+    concepts: [["一页一观点", "每张幻灯片只服务一个主要结论，听众更容易跟上。"], ["视觉层级", "标题最大，说明次之，细节最小，颜色只用来强调。"], ["附件", "发送邮件时要确认文件已上传，并检查文件名和大小。"], ["云盘", "适合在不同设备访问文件，但重要资料仍要保留本机或备份。"], ["提交回执", "平台显示的提交成功状态、时间或回执编号，用来证明已收到文件。"], ["分享权限", "决定谁能打开或编辑云盘文件；作业通常只给指定接收人必要的查看权限。"]],
+    steps: [["搭建三页结构", "第 1 页写主题和姓名，第 2 页写三个要点，第 3 页写总结和下一步。", "搭建结构"], ["减少文字", "把长段落改成短句和关键词，保证远处也能读到标题。", "压缩文字"], ["检查展示", "从头播放一次，检查动画是否干扰内容、图片是否清晰、字体是否超出边界。", "播放检查"], ["模拟提交", "新建一封草稿邮件，添加 PDF 或 PPT 附件，确认上传完成和附件名称。先不要发送给陌生人；下一步核验后再删除草稿。", "模拟提交"], ["提交后回查", "本次假设老师要求：3 页 PDF，文件名为“电脑课-小明-学习计划.pdf”。先核对名称、格式和页数，再重新打开草稿附件或私人云盘中的上传文件；若之前已删除草稿，可重建一封。云盘保持仅自己可访问，练习结束可删草稿。真实作业还需核对老师给的截止时间，在学校指定平台点击提交，看到成功状态或回执并保存。", "回查文件"]],
+    practice: { title: "三页自我介绍", intro: "用虚构或公开信息制作三页“我的大学学习计划”，再做一次不发送给他人的提交演练。", tasks: ["完成三页内容，每页都有清晰标题", "播放检查一次，并修正超出边界的文字", "把演示文稿导出为 PDF，检查附件名称", "按练习要求核对 PDF 文件名、页数和能否打开，再附到邮件草稿或私人云盘", "重新打开草稿附件或已上传文件，记录文件名、时间和“模拟未提交”；若用云盘，确认不是公开分享"], challenge: "小挑战：让同学只看标题就能说出每页的主要结论。", evidence: ["产出：可打开的 PDF，以及一条包含文件名、版本、检查时间的模拟提交记录。", "核对：草稿或私人云盘不等于正式提交；学校作业以指定平台的成功状态或回执为准。"] },
+    resources: [["微软：OneDrive 文件分享权限", "https://support.microsoft.com/zh-cn/onedrive/share-files-and-folders-in-microsoft-onedrive"]],
     quiz: [["一页一观点的好处是？", ["信息更容易理解", "文件一定更大", "不需要标题"], 0, "清晰的单一重点比堆满文字更有效。"], ["发送附件前应当？", ["确认上传完成和文件名", "把密码写进文件名", "删除源文件"], 0, "附件没上传完成是最常见的提交失误之一。"], ["云盘能解决什么问题？", ["在不同设备访问资料", "替你完成作业", "保证永远不丢文件"], 0, "云盘是同步方式，重要资料仍建议保留备份。"]]
   },
   {
@@ -144,10 +146,11 @@ const lessons = [
     title: "遇到问题先排查",
     summary: "电脑出问题时不要乱点。今天建立一条从简单到复杂的排查顺序，并认识任务管理器。",
     duration: "60 分钟",
-    goals: ["用重启、检查连接和更新处理常见故障", "查看任务管理器中的 CPU、内存和磁盘", "知道何时应该求助专业人员"],
-    concepts: [["重启", "重新加载系统和程序状态，能解决很多临时故障。"], ["任务管理器", "查看程序是否卡住以及资源使用情况的工具。"], ["资源", "CPU、内存、磁盘和网络是程序运行时使用的主要资源。"], ["记录", "求助时提供错误原文、发生时间和刚才的操作，效率更高。"]],
-    steps: [["先做安全检查", "确认电脑有电、网络线或 Wi-Fi 正常，保存正在编辑的文件，不要立刻强制关机。", "检查基础"], ["查看任务管理器", "按 Ctrl+Shift+Esc，观察哪个程序占用 CPU 或内存较高。不要结束不认识的系统进程。", "看资源"], ["按顺序排查", "关闭卡住的程序，重新打开；仍有问题就重启；再检查更新和磁盘空间。", "走一遍顺序"], ["学会描述问题", "记录“什么时候发生、做了什么、看到什么提示、重启后是否还存在”。", "写故障记录"]],
-    practice: { title: "排查演练", intro: "不制造故障，只练习工具和记录方式。", tasks: ["打开任务管理器并找到 CPU、内存、磁盘列", "查看 Windows 设置中的存储空间", "在记事本写一份四行故障记录模板"], challenge: "小挑战：以后遇到弹窗，先截屏或记下原文，再搜索完整错误信息，不要只搜索“电脑坏了”。" },
+    goals: ["用重启、检查连接和更新处理常见故障", "查看任务管理器中的 CPU、内存和磁盘", "知道何时应该求助专业人员", "上网课前检查网络、声音、摄像头和电源"],
+    concepts: [["重启", "重新加载系统和程序状态，能解决很多临时故障。"], ["任务管理器", "查看程序是否卡住以及资源使用情况的工具。"], ["资源", "CPU、内存、磁盘和网络是程序运行时使用的主要资源。"], ["记录", "求助时提供错误原文、发生时间和刚才的操作，效率更高。"], ["网课设备自检", "在上课前确认 Wi-Fi、电量、扬声器、麦克风和摄像头工作正常，不必进入真实会议。"]],
+    steps: [["先做安全检查", "确认电脑有电、网络线或 Wi-Fi 正常，保存正在编辑的文件，不要立刻强制关机。", "检查基础"], ["查看任务管理器", "按 Ctrl+Shift+Esc，观察哪个程序占用 CPU 或内存较高。不要结束不认识的系统进程。", "看资源"], ["按顺序排查", "关闭卡住的程序，重新打开；仍有问题就重启；再检查更新和磁盘空间。", "走一遍顺序"], ["学会描述问题", "记录“什么时候发生、做了什么、看到什么提示、重启后是否还存在”。", "写故障记录"], ["网课前自检", "先确认 Wi-Fi 和充电状态；打开“设置 > 系统 > 声音”，测试输出并观察输入音量是否随说话变化。用 Windows“相机”应用预览画面后立即关闭。不需要加入真实会议，也不要录制他人。", "自检设备"]],
+    practice: { title: "排查演练", intro: "不制造故障，顺手完成一次网课前的设备检查。", tasks: ["打开任务管理器并找到 CPU、内存、磁盘列", "查看 Windows 设置中的存储空间", "在记事本写一份四行故障记录模板", "确认 Wi-Fi、电源、声音输出、麦克风输入与摄像头预览；记录一项异常或写“均正常”"], challenge: "小挑战：以后遇到弹窗，先截屏或记下原文，再搜索完整错误信息，不要只搜索“电脑坏了”。", evidence: ["产出：网络 / 电源 / 扬声器 / 麦克风 / 摄像头五项自检记录。", "核对：能听到测试音、输入指示会变化、预览画面可见；做不到的项目写清症状。"] },
+    resources: [["微软：Teams 通话设备设置与测试", "https://support.microsoft.com/zh-cn/teams/calls-devices/manage-your-call-settings-in-microsoft-teams"]],
     quiz: [["程序卡住时第一步更合适是？", ["保存其他文件并尝试关闭或等待", "拔掉电源", "删除系统文件"], 0, "先保护未保存的工作，再处理程序。"], ["任务管理器可以查看？", ["程序和资源使用情况", "家里的电费", "所有账号密码"], 0, "CPU、内存和磁盘列能帮助定位卡顿原因。"], ["向别人求助时最有用的是？", ["完整错误原文和发生步骤", "只说电脑坏了", "隐藏所有细节"], 0, "上下文越完整，越容易复现和解决。"]]
   },
   {
@@ -158,7 +161,7 @@ const lessons = [
     duration: "60 分钟",
     goals: ["打开 PowerShell 并看懂当前路径", "使用 cd、dir、mkdir 完成文件夹操作", "知道命令执行前要核对目标路径"],
     concepts: [["命令行", "通过输入文字命令与系统交互，不等于编程本身。"], ["当前目录", "命令默认工作的文件夹，可以用 pwd 查看。"], ["参数", "跟在命令后面的补充信息，例如 mkdir Python。"], ["Tab 补全", "输入路径开头后按 Tab，减少拼写错误。"]],
-    steps: [["打开 PowerShell", "点击开始菜单，输入 PowerShell，打开普通用户窗口。看到闪烁光标就说明它在等待命令。", "打开终端"], ["查看位置", "输入 <code>pwd</code> 查看当前路径，再输入 <code>dir</code> 列出当前目录内容。", "看当前目录"], ["进入和返回", "输入 <code>cd 文档\大学学习</code>（如果名称不同，使用 Tab 补全），再用 <code>cd ..</code> 返回上一级。", "练习路径"], ["创建练习目录", "确认当前位于自己的学习目录后，输入 <code>mkdir TerminalPractice</code>，再用 <code>dir</code> 验证。", "创建目录"]],
+    steps: [["打开 PowerShell", "点击开始菜单，输入 PowerShell，打开普通用户窗口。看到闪烁光标就说明它在等待命令。", "打开终端"], ["查看位置", "输入 <code>pwd</code> 查看当前路径，再输入 <code>dir</code> 列出当前目录内容。", "看当前目录"], ["进入和返回", "输入 <code>cd 文档\\大学学习</code>（如果名称不同，使用 Tab 补全），再用 <code>cd ..</code> 返回上一级。", "练习路径"], ["创建练习目录", "确认当前位于自己的学习目录后，输入 <code>mkdir TerminalPractice</code>，再用 <code>dir</code> 验证。", "创建目录"]],
     practice: { title: "安全终端练习", intro: "只在自己的学习文件夹里执行以下操作，先看路径再输入命令。", tasks: ["用 pwd 确认当前位置", "用 dir 查看内容并用 cd 进入电脑课文件夹", "创建 TerminalPractice 文件夹并用 dir 验证"], challenge: "小挑战：输入 <code>Get-Help mkdir</code> 查看命令帮助。不要运行来源不明的复制粘贴命令。" },
     quiz: [["pwd 用来做什么？", ["显示当前路径", "删除文件", "打开浏览器"], 0, "知道自己在哪里，是安全使用命令行的第一步。"], ["cd .. 通常表示？", ["进入上一级目录", "删除上一级目录", "复制全部文件"], 0, "两个点代表当前目录的父级。"], ["运行命令前最重要的习惯是？", ["确认当前路径和目标", "随便粘贴命令", "关闭显示器"], 0, "路径核对能避免误操作别人的文件。"]]
   },
@@ -170,7 +173,7 @@ const lessons = [
     duration: "60 分钟",
     goals: ["从官方来源安装 Python 和 VS Code", "创建并运行 .py 文件", "使用变量、input 和 print"],
     concepts: [["解释器", "把 Python 代码逐步翻译给电脑执行的程序。"], ["脚本", "保存为 .py 的文本文件，里面写着 Python 指令。"], ["变量", "给数据起一个名字，后面可以重复使用。"], ["输入输出", "input 获取信息，print 把结果显示在屏幕上。"]],
-    steps: [["确认安装来源", "只从 python.org 和 code.visualstudio.com 获取安装程序。安装时勾选“Add Python to PATH”后再继续。", "确认来源"], ["建立项目文件夹", "在“文档\大学学习\Python”中创建 Day13 文件夹，用 VS Code 打开这个文件夹。", "建立项目"], ["写第一段代码", "新建 hello.py，输入下面示例，保存后点击右上角运行按钮，观察终端输出。", "运行代码"], ["改动再运行", "把名字改成自己的昵称，再运行一次。看到不同结果，就说明你已经完成了第一次程序修改。", "修改程序"]],
+    steps: [["确认安装来源", "只从 python.org 和 code.visualstudio.com 获取安装程序。安装时勾选“Add Python to PATH”后再继续。", "确认来源"], ["建立项目文件夹", "在“文档 > 大学学习 > Python”中创建 Day13 文件夹，用 VS Code 打开这个文件夹。", "建立项目"], ["写第一段代码", "新建 hello.py，输入下面示例，保存后点击右上角运行按钮，观察终端输出。", "运行代码"], ["改动再运行", "把名字改成自己的昵称，再运行一次。看到不同结果，就说明你已经完成了第一次程序修改。", "修改程序"]],
     code: { filename: "hello.py", content: 'name = input("你的名字是：")\nprint("你好，" + name + "！")\nprint("欢迎开始 Python 学习。")' },
     practice: { title: "第一份 Python 作品", intro: "在自己的 Day13 文件夹中创建 hello.py，并至少修改一处文字。", tasks: ["从官方来源安装并打开 Python 或 VS Code", "成功运行 hello.py 并看到输出", "修改程序中的问候语，再运行一次"], challenge: '小挑战：增加一行 <code>print("今天是我的第 13 天")</code>，观察每一行输出的顺序。' },
     quiz: [[".py 文件通常是什么？", ["Python 脚本", "图片文件", "系统驱动"], 0, "扩展名 .py 表示里面通常保存 Python 代码。"], ["input 的作用是？", ["获取用户输入", "关机", "创建文件夹"], 0, "input 会暂停程序，等待用户输入文字。"], ["变量更像什么？", ["给数据起的名字", "电源插头", "网页地址"], 0, "变量名让代码可以引用和修改数据。"]]
@@ -192,13 +195,13 @@ const lessons = [
     day: 15,
     kicker: "CAPSTONE / DAY 15",
     title: "完成你的第一个小项目",
-    summary: "把 15 天的知识串起来：创建文件、运行 Python、调试错误，并为大学生活留下可继续扩展的作品。",
+    summary: "把 15 天的知识串起来：运行 Python 小项目，再完成打包、恢复、隐私检查和模拟提交。",
     duration: "60 分钟",
-    goals: ["独立拆分一个小问题", "完成并运行一个 Python 小项目", "知道接下来如何系统学习"],
-    concepts: [["需求", "先说清楚程序要接收什么、处理什么、输出什么。"], ["调试", "让程序运行、观察错误、定位一行，再小步修改。"], ["迭代", "先完成能运行的版本，再逐步增加功能。"], ["学习路线", "基础语法后可以学习文件处理、数据分析、网页或自动化。"]],
-    steps: [["写清需求", "项目：成绩计算器。输入三门成绩，计算平均分，并告诉用户是否达到 60 分。", "写需求"], ["拆成三块", "输入数据、计算平均值、输出判断。先让最小版本运行，再添加提示。", "拆分问题"], ["运行和调试", "输入正常数字，再故意输入一次不符合预期的内容，记录错误并逐行排查。", "调试一次"], ["留下下一步", "把项目保存到 Python 文件夹，写下三个想增加的功能，例如保存成绩、增加课程名、输出等级。", "保存作品"]],
+    goals: ["独立拆分一个小问题", "完成并运行一个 Python 小项目", "知道接下来如何系统学习", "将作品打包、恢复并完成一次模拟提交核验"],
+    concepts: [["需求", "先说清楚程序要接收什么、处理什么、输出什么。"], ["调试", "让程序运行、观察错误、定位一行，再小步修改。"], ["迭代", "先完成能运行的版本，再逐步增加功能。"], ["学习路线", "基础语法后可以学习文件处理、数据分析、网页或自动化。"], ["交付核验", "交出去前后都检查文件名、格式、内容和接收状态；自己的文件夹里有副本也要能恢复。"]],
+    steps: [["写清需求", "项目：成绩计算器。输入三门成绩，计算平均分，并告诉用户是否达到 60 分。", "写需求"], ["拆成三块", "输入数据、计算平均值、输出判断。先让最小版本运行，再添加提示。", "拆分问题"], ["运行和调试", "输入正常数字，再故意输入一次不符合预期的内容，记录错误并逐行排查。", "调试一次"], ["留下下一步", "把项目保存到 Python 文件夹，写下三个想增加的功能，例如保存成绩、增加课程名、输出等级。", "保存作品"], ["打包并恢复", "在 Day15 文件夹放入代码和三句话的 README.txt：项目做什么、如何运行、是否用了外部资料及其来源。只用虚构成绩，检查无学号等隐私后打成 ZIP。把 ZIP 复制到另一位置并打开副本；将原 ZIP 改名为“模拟丢失.zip”，再从副本复制回来并解压核对，不删除原件。", "核对副本"], ["模拟提交核验", "把 ZIP 附在给自己的草稿邮件或上传到私人云盘，不必真的发出。重新打开附件或上传文件，核对名称、内容和时间；记录“模拟未提交”。真正学校作业仍须在指定平台提交并核对回执。", "核对提交"]],
     code: { filename: "grade_calculator.py", content: 'print("=== 成绩计算器 ===")\nfirst = float(input("第一门成绩："))\nsecond = float(input("第二门成绩："))\nthird = float(input("第三门成绩："))\n\naverage = (first + second + third) / 3\nprint("平均分：", round(average, 1))\n\nif average >= 60:\n    print("结果：达到及格线")\nelse:\n    print("结果：需要继续复习")' },
-    practice: { title: "15 天结课项目", intro: "完成成绩计算器，或用同样结构做一个你真正感兴趣的微型工具。", tasks: ["先写出输入、处理、输出三步", "运行至少三次，使用不同的虚构成绩", "给程序增加一个自己的改动并保存"], challenge: "毕业挑战：把作品和一页学习笔记一起放进 Day15 文件夹，写下你接下来想学的方向。" },
+    practice: { title: "15 天结课项目", intro: "约 35 分钟完成原有 Python 项目，15 分钟打包与恢复，10 分钟模拟提交和复核。", tasks: ["先写出输入、处理、输出三步", "运行至少三次，使用不同的虚构成绩", "给程序增加一个自己的改动并保存", "将代码与三句话的 README.txt 放入 Day15，检查来源和隐私后压成 ZIP；从另一位置的副本恢复并打开", "在邮件草稿或私人云盘中模拟提交 ZIP，重新打开核对，记下“模拟未提交”及检查时间"], challenge: "毕业挑战：把作品和一页学习笔记一起放进 Day15 文件夹，写下你接下来想学的方向。", evidence: ["产出：可运行的程序、README.txt、可解压的 ZIP 和一条模拟提交核验记录。", "核对：程序用三组虚构数据运行；恢复的文件可打开；没有真实隐私；模拟操作不冒充学校正式提交。"], reviewDays: [[3, "文件与备份"], [5, "资料核验"], [6, "隐私检查"], [10, "提交核验"], [11, "设备自检"]] },
     quiz: [["做项目时最稳妥的顺序是？", ["先做最小可运行版本，再逐步增加功能", "一次写完所有功能", "先删除 Python"], 0, "小步迭代能更快发现问题，也更容易理解。"], ["调试时最有用的动作是？", ["观察完整错误信息并缩小范围", "反复重启不看提示", "删掉所有代码"], 0, "错误信息通常会告诉你文件、行号和问题类型。"], ["15 天之后适合怎样继续？", ["按兴趣选择方向并持续做小项目", "只背快捷键", "不再使用电脑"], 0, "持续完成小作品，比一次看完大量教程更有效。"]]
   }
 ];
@@ -403,15 +406,25 @@ function renderSidebar() {
 function renderVisual(lesson) {
   let content = "";
   let caption = "用一个小示意，把今天的概念和真实操作连起来。";
+  const workflow = (labels) => `<div class="workflow-visual">${labels.map((label, index) => `<div class="workflow-item"><b>${index + 1}</b><span>${label}</span></div>`).join("")}</div>`;
   if (lesson.day <= 2) {
     content = `<div class="desktop-visual"><div class="desktop-wallpaper"></div><div class="desktop-window"><div class="window-bar"><span>${lesson.day === 1 ? "记事本" : "学习窗口"}</span><span class="window-dots"><i></i><i></i><i></i></span></div><div class="window-body"><div class="window-line"></div><div class="window-line short"></div><div class="window-line"></div></div></div><div class="desktop-taskbar"><button title="开始菜单">⊞</button><span>◉</span><span>▣</span><span>◌</span></div></div>`;
     caption = lesson.day === 1 ? "桌面是起点，窗口是工作区域，任务栏负责切换。" : "三个按钮管理窗口，任务栏帮你在程序之间切换。";
   } else if (lesson.day === 3) {
-    content = `<div class="folder-visual"><div class="folder-node"><strong>▰</strong><span>文档</span></div><span class="folder-arrow">›</span><div class="folder-node"><strong>▰</strong><span>大学学习</span></div><span class="folder-arrow">›</span><div class="folder-node"><strong>▰</strong><span>电脑课</span></div></div>`;
-    caption = "文件夹像抽屉，路径就是从外到内的地址。";
+    content = workflow(["原文件", "打包 ZIP", "保留副本", "恢复核对"]);
+    caption = "ZIP 方便打包；备份要有另一份可打开的副本，恢复后还要核对内容。";
   } else if (lesson.day === 5) {
     content = `<div class="url-visual"><div class="url-bar">https://example.edu.cn/library</div><div class="url-parts"><span><b>https://</b>连接方式</span><span><b>example.edu.cn</b>网站域名</span><span><b>/library</b>页面路径</span></div></div>`;
-    caption = "判断网页时先看真正的域名，再看页面内容和来源。";
+    caption = "看清域名，再记下作者、日期和链接；AI 的说法也要回到来源核对。";
+  } else if (lesson.day === 10) {
+    content = workflow(["核对要求", "添加附件", "重新打开", "确认回执"]);
+    caption = "草稿只算演练；真实作业以学校平台的成功状态或回执为准。";
+  } else if (lesson.day === 11) {
+    content = workflow(["网络", "声音", "摄像头", "电源"]);
+    caption = "上网课前逐项自检，不需要进入真实会议。";
+  } else if (lesson.day === 15) {
+    content = workflow(["运行项目", "打包 ZIP", "恢复副本", "模拟提交"]);
+    caption = "作品能运行只是开始，交付文件也要能打开、能恢复、能核验。";
   } else if (lesson.day >= 12) {
     content = `<div class="terminal-visual"><div><span class="prompt">PS C:\\Users\\Student&gt;</span> ${lesson.day === 12 ? "pwd" : "python hello.py"}</div><div>${lesson.day === 12 ? "Path  C:\\Users\\Student\\Documents" : "你好，准大一新生！"}</div><div><span class="prompt">&gt;</span> <span class="cursor"></span></div></div>`;
     caption = lesson.day === 12 ? "先确认 Path，再执行命令；终端会忠实地显示结果。" : "代码、文件和运行结果组成一个完整的小程序。";
@@ -436,6 +449,16 @@ function renderSectionGuide(type) {
 
 function conceptExplanation(title, body) {
   const rules = [
+    ["扩展名", "扩展名是文件名最后一个点后面的字母，提示系统怎样打开文件。", "显示扩展名后，能区分普通文档与可执行程序，也能发现看似 PDF、实际以 .exe 结尾的文件。", "Day01-笔记.txt 是文本；作业.pdf.exe 的真正扩展名是 .exe。", "在文件资源管理器打开“查看 > 显示 > 文件扩展名”，并检查文件名末尾。"],
+    ["ZIP 压缩包", "ZIP 像一个打包袋，能把几个文件装成一个 .zip 文件，便于整理或提交。", "打包不等于备份，也不保证包里的文件安全或完整。", "将测试笔记压成 Day03-练习.zip，再用“全部提取”查看其中的 .txt。", "能解压并打开原文件；来历不明的 ZIP 先不要运行其中程序。"],
+    ["备份与恢复", "备份是在另一位置留一份可以使用的副本；恢复是在原件有问题时把副本取回来。", "只有做过恢复核对，才知道副本不是空的或损坏的。", "把测试笔记复制到外置盘或另一受控位置，模拟原件丢失后复制回来。", "先打开副本，再恢复并核对内容；同一磁盘内的复制只算演练。"],
+    ["资料引用", "引用是给用过的资料留下出处，让别人能重新找到它。", "记住来源才能核对观点，也能避免把别人的文字当成自己的成果。", "记录“作者或机构、标题、日期、网址”，没有日期就如实写“未标注”。", "自己重新打开链接，确认标题和内容确实支持你的说法。"],
+    ["AI 回答核验", "AI 可以帮你提出线索，但它写出的事实和来源可能不准确。", "交作业或做重要决定前，需要查原始资料，而不是只复制 AI 的答案。", "先写下 AI 的一句具体说法，再找官方说明和另一可靠来源比对。", "分清“已核实”“有冲突”“待核实”；查不到时不要装作确定。"],
+    ["隐私信息", "隐私信息是能识别你、联系你或进入你账号的内容。", "公开截图、云盘链接或 AI 提问可能让这些内容被不该看到的人拿到。", "学号、手机号、住址、验证码和未公开的作业都要先判断是否需要提供。", "发送前看一遍截图四角、文件名和通知；非必要信息就裁掉或遮挡。"],
+    ["提交回执", "提交回执是系统对“已收到作业”的确认，可能是成功状态、时间或编号。", "把附件加进草稿或选中了文件，不等于平台已经收到作业。", "学校平台显示“提交成功”与提交时间，比本地文件夹里有一份更能证明提交。", "提交后返回作业页检查状态，并保存不含隐私的凭证。"],
+    ["分享权限", "分享权限决定谁能通过链接打开文件，以及是否能修改它。", "“任何人可编辑”可能让不相关的人看到或改动你的作业。", "云盘练习先保持仅自己可访问；真要分享时再按要求指定接收人和查看权限。", "从分享设置回查访问范围，不要凭链接能生成就认定权限正确。"],
+    ["网课设备自检", "设备自检是开课前快速确认连接、声音、画面和电源。", "提前发现麦克风无输入或摄像头没权限，可以避免上课时手忙脚乱。", "设置里播放测试音、看麦克风输入条变化，再用相机应用预览。", "逐项记“正常/异常”；异常时记下设备名和屏幕提示。"],
+    ["交付核验", "交付核验是把作品按要求整理好，并在交付前后都检查能否使用。", "程序在自己电脑上能运行，不代表 ZIP、附件或老师收到的版本也正确。", "代码和 README 打包后解压检查，再从副本恢复，最后在草稿或私人云盘重新打开。", "核对文件名、内容、版本、隐私和提交状态；模拟提交不能冒充正式回执。"],
     ["域名", "域名是网站在网络上的名字，像学校的校名；它帮助浏览器找到对应的网站。", "判断一个网站是否可信时，先看真正的域名，不要只看网页大标题。", "在 example.edu.cn/library 中，example.edu.cn 是域名，/library 是页面路径。", "看域名、拼写和后缀，再决定是否继续输入信息。"],
     ["网址", "网址是一条完整的网络地址，通常包含连接方式、域名和页面路径。", "把网址拆开看，能帮助你判断自己正在访问哪里。", "https://example.edu.cn/library 可以拆成 https://、域名和 /library。", "先看地址栏，再确认域名是否与官方来源一致。"],
     ["路径", "路径是文件或文件夹在电脑中的地址，告诉你从哪里一层层找到它。", "路径清楚，保存、查找和使用命令行都会更安全。", "文档\\大学学习\\电脑课\\Day01-笔记.txt 就是一条路径。", "先确认当前文件夹，再进行移动或删除。"],
@@ -476,6 +499,7 @@ function renderConceptCard([title, body]) {
 function renderLearn(lesson) {
   const stepsDone = lesson.steps.filter((_, i) => isStepDone(lesson.day, i)).length;
   const code = lesson.code ? `<div class="code-toolbar"><span>${lesson.code.filename}</span><button class="copy-button" type="button" data-copy="${encodeURIComponent(lesson.code.content)}">复制代码</button></div><pre class="code-block"><code>${html(lesson.code.content)}</code></pre>` : "";
+  const resources = lesson.resources ? `<div class="lesson-resources"><strong>官方操作资料</strong>${lesson.resources.map(([label, url]) => `<a href="${url}" target="_blank" rel="noopener noreferrer">${label} <span aria-hidden="true">↗</span></a>`).join("")}</div>` : "";
   return `<div class="panel">
     ${renderSectionGuide("learn")}
     <div class="intro-card"><div class="intro-number">${String(lesson.day).padStart(2, "0")}</div><div><h3>今天的核心</h3><p>${lesson.summary}</p></div></div>
@@ -483,12 +507,15 @@ function renderLearn(lesson) {
     ${code}
     <div class="steps-heading"><h3>跟着做</h3><span>${stepsDone} / ${lesson.steps.length} 步已完成</span></div>
     <div class="step-list">${lesson.steps.map(([title, body, action], index) => `<article class="step ${isStepDone(lesson.day,index) ? "done" : ""} ${!isStepDone(lesson.day,index) && index === stepsDone ? "current" : ""}"><div class="step-index">${isStepDone(lesson.day,index) ? "✓" : index + 1}</div><div><h4>${title}</h4><p>${body}</p></div><button class="step-action ${isStepDone(lesson.day,index) ? "done-action" : ""}" type="button" data-step="${index}">${isStepDone(lesson.day,index) ? "已完成" : action}</button></article>`).join("")}</div>
+    ${resources}
   </div>`;
 }
 
 function renderPractice(lesson) {
   const mastery = state.mastery[lesson.day] || "";
-  return `<div class="panel practice-layout">${renderSectionGuide("practice")}<div class="practice-card" data-ask-title="${encodeURIComponent(lesson.practice.title)}" data-ask-body="${encodeURIComponent(lesson.practice.intro)}"><h3>${lesson.practice.title}</h3><p>${lesson.practice.intro}</p><div class="checklist">${lesson.practice.tasks.map((task, index) => `<div class="check-row"><input id="task-${lesson.day}-${index}" type="checkbox" data-task="${index}" ${isTaskDone(lesson.day,index) ? "checked" : ""}/><label for="task-${lesson.day}-${index}">${task}</label></div>`).join("")}</div></div><div class="mastery-card"><h4>我现在能做到什么程度？</h4><p>请选择最接近真实情况的一项。这个选择不会阻止结课，只用于安排复习。</p><div class="mastery-options"><button class="mastery-option ${mastery === "needs_review" ? "active" : ""}" data-mastery="needs_review" type="button">还需要复习</button><button class="mastery-option ${mastery === "with_help" ? "active" : ""}" data-mastery="with_help" type="button">有提示能完成</button><button class="mastery-option ${mastery === "independent" ? "active" : ""}" data-mastery="independent" type="button">可以独立完成</button></div></div><div class="challenge"><h4>可选挑战 · 让自己多走一步</h4><p>${lesson.practice.challenge}</p></div></div>`;
+  const evidence = lesson.practice.evidence ? `<div class="evidence-band"><strong>完成时核对</strong>${lesson.practice.evidence.map(item => `<p>${item}</p>`).join("")}</div>` : "";
+  const reviewDays = lesson.practice.reviewDays ? `<div class="review-links"><strong>需要回看哪一天？</strong><div>${lesson.practice.reviewDays.map(([day, label]) => `<button type="button" data-review-lesson="${day}">第 ${day} 天 · ${label} ↗</button>`).join("")}</div></div>` : "";
+  return `<div class="panel practice-layout">${renderSectionGuide("practice")}<div class="practice-card" data-ask-title="${encodeURIComponent(lesson.practice.title)}" data-ask-body="${encodeURIComponent(lesson.practice.intro)}"><h3>${lesson.practice.title}</h3><p>${lesson.practice.intro}</p><div class="checklist">${lesson.practice.tasks.map((task, index) => `<div class="check-row"><input id="task-${lesson.day}-${index}" type="checkbox" data-task="${index}" ${isTaskDone(lesson.day,index) ? "checked" : ""}/><label for="task-${lesson.day}-${index}">${task}</label></div>`).join("")}</div></div>${evidence}${reviewDays}<div class="mastery-card"><h4>我现在能做到什么程度？</h4><p>请选择最接近真实情况的一项。这个选择不会阻止结课，只用于安排复习。</p><div class="mastery-options"><button class="mastery-option ${mastery === "needs_review" ? "active" : ""}" data-mastery="needs_review" type="button">还需要复习</button><button class="mastery-option ${mastery === "with_help" ? "active" : ""}" data-mastery="with_help" type="button">有提示能完成</button><button class="mastery-option ${mastery === "independent" ? "active" : ""}" data-mastery="independent" type="button">可以独立完成</button></div></div><div class="challenge"><h4>可选挑战 · 让自己多走一步</h4><p>${lesson.practice.challenge}</p></div></div>`;
 }
 
 function noteText(value) { return String(value || "").replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;"); }
@@ -841,13 +868,14 @@ async function importProgress(file) {
 
 function render() {
   const lesson = currentLesson();
+  const completedWithNewWork = isComplete(lesson.day) && !lessonReady(lesson);
   renderSidebar();
   document.getElementById("crumbDay").textContent = `第 ${lesson.day} 天`;
   document.getElementById("lessonKicker").textContent = lesson.kicker;
   document.getElementById("lessonTitle").textContent = lesson.title;
   document.getElementById("lessonSummary").textContent = lesson.summary;
   document.getElementById("lessonDuration").textContent = lesson.duration;
-  document.getElementById("lessonStatus").textContent = isComplete(lesson.day) ? "已完成" : lessonReady(lesson) ? "可以结课" : "进行中";
+  document.getElementById("lessonStatus").textContent = completedWithNewWork ? "已完成 · 可补练" : isComplete(lesson.day) ? "已完成" : lessonReady(lesson) ? "可以结课" : "进行中";
   document.getElementById("lessonStatus").previousElementSibling.textContent = isComplete(lesson.day) ? "✓" : "◎";
   document.getElementById("goalList").innerHTML = lesson.goals.map(goal => `<li>${goal}</li>`).join("");
   document.getElementById("visualCard").innerHTML = renderVisual(lesson);
@@ -856,8 +884,10 @@ function render() {
   document.getElementById("quizBadge").textContent = `${lessonQuizScore(lesson.day)}/${QUIZ_SIZE}`;
   const prev = document.getElementById("prevDay"); const next = document.getElementById("nextDay");
   prev.disabled = lesson.day === 1; prev.style.opacity = lesson.day === 1 ? ".45" : "1";
-  next.textContent = isComplete(lesson.day) ? (lesson.day === 15 ? "已完成 ✓" : "下一天 →") : lessonReady(lesson) ? (lesson.day === 15 ? "完成课程 ✓" : "完成并进入下一天 →") : "下一天 →";
-  document.getElementById("footerHint").textContent = lessonReady(lesson) ? (isComplete(lesson.day) ? "今天已经留下学习记录" : "练习和测验都达标了，可以结课") : "完成练习和测验后，可以标记今天完成";
+  next.textContent = lesson.day === lessons.length
+    ? (isComplete(lesson.day) ? "已完成 ✓" : lessonReady(lesson) ? "完成课程 ✓" : "检查结课条件 →")
+    : (isComplete(lesson.day) ? "下一天 →" : lessonReady(lesson) ? "完成并进入下一天 →" : "下一天 →");
+  document.getElementById("footerHint").textContent = completedWithNewWork ? "原结课记录保留；新增练习可随时补做" : lessonReady(lesson) ? (isComplete(lesson.day) ? "今天已经留下学习记录" : "练习和测验都达标了，可以结课") : "完成练习和测验后，可以标记今天完成";
   bindContentEvents(lesson);
 }
 
@@ -867,6 +897,12 @@ function bindContentEvents(lesson) {
   }));
   document.querySelectorAll("[data-task]").forEach(input => input.addEventListener("change", () => {
     state.taskDone[lessonKey(lesson.day, Number(input.dataset.task))] = input.checked; persist(); render();
+  }));
+  document.querySelectorAll("[data-review-lesson]").forEach(button => button.addEventListener("click", () => {
+    state.currentDay = Number(button.dataset.reviewLesson);
+    state.tab = "practice";
+    persist(); render();
+    window.scrollTo({ top: 0, behavior: "smooth" });
   }));
   document.querySelectorAll("[data-question]").forEach(input => input.addEventListener("change", () => {
     if (!state.answers[lesson.day]) state.answers[lesson.day] = [];

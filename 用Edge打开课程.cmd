@@ -2,7 +2,7 @@
 setlocal
 cd /d "%~dp0"
 set "EDGE_EXE=C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe"
-set "COURSE_URL=http://127.0.0.1:8766/?v=20260822-learning-v6"
+set "COURSE_URL=http://127.0.0.1:8766/?v=20261009-learning-v7"
 
 powershell.exe -NoProfile -ExecutionPolicy Bypass -File "%~dp0ensure_course_server.ps1"
 if errorlevel 1 (
